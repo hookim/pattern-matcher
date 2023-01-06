@@ -5,7 +5,7 @@
 #include "tokeneizer.h"
 
 
-int main(void){
+void test_ds(){
   Tlist * tl, *tl2;
   Token * tok;
   char buf[32];
@@ -19,7 +19,7 @@ int main(void){
     scanf("%s", buf);
     tok = (Token *) malloc(sizeof(Token));
     tokInit(tok);
-    tokSet(tok, buf);
+    // tokSet(tok, buf);
     tlAdd(tl, tok);
   }
 
@@ -32,6 +32,31 @@ int main(void){
 
   printTlist(tl);
   printTlist(tl2);
+};
+void test_tokeneizer(){
+  char *fname1, *fname2;
+  Tlist * tl1, *tl2;
+  tl1 = malloc(sizeof(Tlist));
+  tl2 = malloc(sizeof(Tlist));
+  fname1 = "test1.txt";
+  fname2 = "test2.txt";
 
+  tlInit(tl1);
+  tlInit(tl2);
+
+  tokeneizer(fname1, fname2, tl1, tl2);
+  
+  printf("<<<< tl1 >>>> \n");
+  printf("total_line : %d, total_tokens : %d\n", tl1->tot_line, tl1->tot_tok);
+  printTlist(tl1);
+
+  printf("<<<< tl2 >>>> \n");
+  printf("total_line : %d, total_tokens : %d\n", tl2->tot_line, tl2->tot_tok);
+  printTlist(tl2);
+
+}
+
+int main(void){
+  test_tokeneizer();
   return 0;
 }

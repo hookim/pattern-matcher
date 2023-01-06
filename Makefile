@@ -1,7 +1,7 @@
-debug : test ds
-	gcc -w -g -o debug test.o ds.o
+debug : test ds tokeneizer
+	gcc -w -g -o debug test.o ds.o tokeneizer.o
 test:
-	gcc -w  -g -c test.c
+	gcc -w -g -c test.c
 ds:
 	gcc -w -g -c ds.c
 tokeneizer:

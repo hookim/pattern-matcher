@@ -34,7 +34,7 @@ void printTlist(Tlist *tl);
 
 //Token methods
 void tokInit(Token *tok);
-void tokSet(Token *tok, char* buf);
+void tokSet(Token *tok, char* buf, int line_no, int col_no);
 
 //Matched methods
 void mInit(Matched * head);

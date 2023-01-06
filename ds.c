@@ -32,7 +32,7 @@ void tlAdd(Tlist *tl, Token *tok){
 }
 
 // zero-base idx & [begin, end] inclusive
-// this funciton is for detaching tokens from token list
+// this funciton is for detaching tokens from token list with its reference valid
 Token * tlSlice(Tlist *tl, int begin, int end){
   if(begin > end || tl->tot_tok == 0){
     return (Token *) NULL;
@@ -66,13 +66,11 @@ void printTlist(Tlist *tl){
   cur =  tl->root->next;
   int idx = 0;
   while(cur){
-    printf("[%d] :%s|-> ", idx++ ,cur->data);
+    printf("[%d]|%s|-%d-> ", idx++ ,cur->data, cur->line_no);
     cur = cur->next;
   }
 
   printf("NULL\n");
-
-
 }
 
 // ADT TOKEN
@@ -82,10 +80,13 @@ void tokInit(Token *tok){
   tok->line_no = 0;
   tok->next = NULL;
 }
-void tokSet(Token *tok, char* buf){
+
+void tokSet(Token *tok, char* buf, int line_no, int col_no){
   int length;
   length = strlen(buf);
-  tok->data = (char *)malloc(sizeof(char) * (length + 1));
+  tok->data = (char *) malloc(sizeof(char) * (length + 1));
+  tok->line_no = line_no;
+  tok->col_no = col_no;
   strcpy(tok->data, buf);
 }
 
