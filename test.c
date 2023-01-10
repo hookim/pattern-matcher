@@ -1,8 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+
 #include "ds.h"
 #include "tokeneizer.h"
+#include "pattern.h"
 
 
 void test_ds(){
@@ -56,7 +58,29 @@ void test_tokeneizer(){
 
 }
 
+void test_matcher(){
+  char *fname1, *fname2;
+  Tlist * tl1, *tl2;
+  Matched *pair;
+
+  tl1 = malloc(sizeof(Tlist));
+  tl2 = malloc(sizeof(Tlist));
+  pair = malloc(sizeof(Matched));
+  fname1 = "test1.txt";
+  fname2 = "test2.txt";
+
+  tlInit(tl1);
+  tlInit(tl2);
+  mInit(pair);
+
+  tokeneizer(fname1, fname2, tl1, tl2);
+
+  matcher(pair, tl1, tl2);
+  printMatched(pair);
+
+}
+
 int main(void){
-  test_tokeneizer();
+  test_matcher();
   return 0;
 }

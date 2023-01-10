@@ -30,6 +30,7 @@ typedef struct _Matched Matched;
 void tlAdd(Tlist *tl, Token *tok);
 void tlInit(Tlist *tl);
 Token *tlSlice(Tlist *tl, int begin, int end);
+Token *tlHead(Tlist *tl);
 void printTlist(Tlist *tl);
 
 //Token methods
@@ -39,5 +40,6 @@ void tokSet(Token *tok, char* buf, int line_no, int col_no);
 //Matched methods
 void mInit(Matched * head);
 void mPair(Matched * head, Token *A, Token *B);
+void printMatched(Matched * head);
 
 #endif

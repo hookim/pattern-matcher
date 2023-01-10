@@ -13,7 +13,6 @@ void tlInit(Tlist *tl){
   tokInit(tl->root);
   tl->tot_line = 0;
   tl->tot_tok = 0;
-  
 }
 
 void tlAdd(Tlist *tl, Token *tok){
@@ -44,9 +43,11 @@ Token * tlSlice(Tlist *tl, int begin, int end){
   cur_tok = prev_cur->next;
 
   for(i = 0; i < begin; i++){
-    if(i > 0) prev_cur = cur_tok;
+    prev_cur = cur_tok;
     cur_tok = cur_tok->next;
   }
+  // if(i == 1) prev_cur = prev_cur->next;
+
   beg_tok = cur_tok;
   for(i = begin; i < end; i++){
     cur_tok = cur_tok->next;
@@ -59,6 +60,10 @@ Token * tlSlice(Tlist *tl, int begin, int end){
   tl->tot_tok -= end - begin + 1;
 
   return beg_tok;
+}
+
+Token *tlHead(Tlist * tl){
+  return tl->root->next;
 }
 
 void printTlist(Tlist *tl){
@@ -107,4 +112,34 @@ void mPair(Matched * head, Token *A, Token *B){
   cur = cur->next;
   cur->A = A;
   cur->B = B;
+}
+
+void printMatched(Matched * head){
+  int idx;
+  Matched * cur;
+  Token * cur_tok;
+  cur = head->next;
+  idx = 1;
+
+  printf("-------------Match----------------\n");
+  while(cur){
+    printf("%d match\n", idx++);
+    cur_tok = cur->A;
+    printf("  - A : ");
+    while(cur_tok){
+      printf("[%s]", cur_tok->data);
+      cur_tok = cur_tok->next;
+    }
+    printf("\n");
+
+    cur_tok = cur->B;
+    printf("  - B : ");
+    while(cur_tok){
+      printf("[%s]", cur_tok->data);
+      cur_tok = cur_tok->next;
+    }
+    printf("\n");
+
+    cur = cur->next;
+  }
 }
