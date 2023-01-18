@@ -95,6 +95,16 @@ void tokSet(Token *tok, char* buf, int line_no, int col_no){
   strcpy(tok->data, buf);
 }
 
+int tokLen(Token *tok){
+  int length = 0;
+  Token *cur = tok;
+  while(cur){
+    length++;
+    cur = cur->next;
+  }
+  return length; 
+}
+
 // ADT MATCHED
 void mInit(Matched * head){
   head->A = NULL;
@@ -115,7 +125,7 @@ void mPair(Matched * head, Token *A, Token *B){
 }
 
 void printMatched(Matched * head){
-  int idx;
+  int idx, ln;
   Matched * cur;
   Token * cur_tok;
   cur = head->next;
@@ -125,18 +135,28 @@ void printMatched(Matched * head){
   while(cur){
     printf("%d match\n", idx++);
     cur_tok = cur->A;
-    printf("  - A : ");
+    printf("  - A : \n");
     while(cur_tok){
-      printf("[%s]", cur_tok->data);
-      cur_tok = cur_tok->next;
+      ln = cur_tok->line_no;
+      printf("    #%d", ln);
+      while(cur_tok && ln == cur_tok->line_no){
+        printf("[%s, (%d, %d)]", cur_tok->data, cur_tok->line_no, cur_tok->col_no);
+        cur_tok = cur_tok->next;
+      }
+      printf("\n");
     }
     printf("\n");
 
     cur_tok = cur->B;
-    printf("  - B : ");
+    printf("  - B : \n");
     while(cur_tok){
-      printf("[%s]", cur_tok->data);
-      cur_tok = cur_tok->next;
+      ln = cur_tok->line_no;
+      printf("    #%d", ln);
+      while(cur_tok && ln == cur_tok->line_no){
+        printf("[%s, (%d, %d)]", cur_tok->data, cur_tok->line_no, cur_tok->col_no);
+        cur_tok = cur_tok->next;
+      }
+      printf("\n");
     }
     printf("\n");
 

@@ -13,6 +13,6 @@ int get_tokens(Tlist *t, FILE *fp);
   skipping all the empty characters and return the number of newLines on the way.
   if reached EOF return -1. 
 */
-int devourEmpty(char *next, FILE *fp);
+int devourEmpty(char *next, int *col, FILE *fp);
 
 #endif
