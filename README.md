@@ -1,3 +1,5 @@
+[Korean](https://github.com/HooKim/Pattern-Matcher/blob/main/README.kr.md)
+
 ### What is "pattern matcher"?
 + it compares 2 files. the first one be the main. the second be the auxilary.
 + it browses through the main files and finds **the longest identical** sentences which are present in the auxilary file as well
@@ -19,9 +21,9 @@
   + file1 : ~~hello~~ from ~~the other side~~
   + file2 : ~~hello~~ to ~~the other side~~
 4. ex4
-  + file1 : ~~hello $~~~~~~~~$ from the other side~~
-  + file2 : ~~hello
-            $~~~~~~~~~$from the other side~~
+  + file1 : ~~hello~~ $~~~~~~~~$ ~~from the other side~~
+  + file2 : ~~hello~~
+            $~~~~~~~~~$~~from the other side~~
 
 ### Program Result
 + file1
@@ -38,6 +40,3 @@
   + for each matches the sentence to be the longest identical is printed out in color.
   + for each files it tells which position the sentence is located in the file. 
   + the number inside the parentheses indicate the line number and column number of the first character from the first and last tokens.
-   
-### Feedback 
-  contact (hooo.dev@gmail.com)
