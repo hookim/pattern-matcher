@@ -10,28 +10,28 @@
 
 ### Examples
 1. ex1
-  + file1 : ==hello from the other== ==side== at least there? 
-  + file2 : hello hello from ==side== hello from the ==hello from the other== 
+  + file1 : ~~hello from the other~~ ~~side~~ at least there? 
+  + file2 : hello hello from ~~side~~ hello from the ~~hello from the other~~ 
 2. ex2
-  + file1 : ==hello from the== ==other side==
-  + file2 : from the ==other side== ==hello from the==
+  + file1 : ~~hello from the~~ ~~other side~~
+  + file2 : from the ~~other side~~ ~~hello from the~~
 3. ex3
-  + file1 : ==hello== from ==the other side==
-  + file2 : ==hello== to ==the other side==
+  + file1 : ~~hello~~ from ~~the other side~~
+  + file2 : ~~hello~~ to ~~the other side~~
 4. ex4
-  + file1 : ==hello $~~~~~~~~$ from the other side==
-  + file2 : ==hello
-            $~~~~~~~~~$from the other side==
+  + file1 : ~~hello $~~~~~~~~$ from the other side~~
+  + file2 : ~~hello
+            $~~~~~~~~~$from the other side~~
 
 ### Program Result
 + file1
-  ==hello from the other side
-  hello from the== here ==side
-  I must have called a== hundred ==times==
+  ~~hello from the other side
+  hello from the~~ here ~~side
+  I must have called a~~ hundred ~~times~~
 + file2
-  ==hello from the other side
-  hello from the== other ==side
-  I must have called a== thousand ==times==
+  ~~hello from the other side
+  hello from the~~ other ~~side
+  I must have called a~~ thousand ~~times~~
 + result![program result](./result.png)  
 + explanation 
   + 총 매치 개수를 보여준다.
