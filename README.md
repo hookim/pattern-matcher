@@ -1,4 +1,4 @@
-[Korean](https://github.com/HooKim/Pattern-Matcher/blob/main/README.kr.md)
+[한국어](https://github.com/HooKim/Pattern-Matcher/blob/main/README.kr.md)
 
 ### What is "pattern matcher"?
 + it compares 2 files. the first one be the main. the second be the auxilary.
@@ -8,7 +8,10 @@
   a token can be a string consists of digits or alphabets, a special character. a white space can't be a token. so it just skips.(ex4)
   
 ### How to use it?
-  ./match [file1] [file2]
+  ```
+  > make
+  > ./match [file1] [file2]
+  ```
 
 ### Examples
 1. ex1

@@ -23,4 +23,4 @@ pattern:
 pattern-d:
 	gcc -w -g -c pattern.c
 clean:
-	rm *.o
+	rm *.o match debug
